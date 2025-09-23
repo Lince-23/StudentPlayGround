@@ -9,7 +9,7 @@ class DeleteStudentUseCase(val studentRepository: StudentRepository) {
         if(existingStudent != null) {
             studentRepository.delete(exp)
         }else{
-            Log.d("@dev", "El usuario que se intenta eliminar no existe")
+//            Log.d("@dev", "El usuario que se intenta eliminar no existe")
         }
     }
 }
