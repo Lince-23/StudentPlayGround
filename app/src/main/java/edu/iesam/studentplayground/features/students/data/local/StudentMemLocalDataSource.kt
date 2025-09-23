@@ -20,6 +20,6 @@ class StudentMemLocalDataSource{
     }
 
     fun update(exp: String, updatedStudent: Student){
-        dataSource.replace(exp, dataSource.get(exp), updatedStudent )
+        dataSource.replace(exp, dataSource.get(exp)!!, updatedStudent )
     }
 }
