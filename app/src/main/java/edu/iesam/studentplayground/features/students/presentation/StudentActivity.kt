@@ -11,6 +11,7 @@ import edu.iesam.studentplayground.features.students.data.StudentDataRepository
 import edu.iesam.studentplayground.features.students.data.local.StudentMemLocalDataSource
 import edu.iesam.studentplayground.features.students.data.local.StudentXmlLocalDataSource
 import edu.iesam.studentplayground.features.students.data.remote.StudentApiRemoteDataSource
+import edu.iesam.studentplayground.features.students.domain.DeleteStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.GetStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 
@@ -40,6 +41,9 @@ class StudentActivity : AppCompatActivity() {
             ),
             GetStudentsUseCase(
                 studentDataRepository
+            ),
+            DeleteStudentUseCase(
+                studentDataRepository
             )
         )
 
@@ -47,7 +51,8 @@ class StudentActivity : AppCompatActivity() {
         viewModel.saveClicked("0002", "nombre1 apellido1 apellido2")
         Log.d("@dev", "Stop")
         viewModel.getClicked()
-
+        viewModel.deleteClicked("0002")
+        viewModel.getClicked()
     }
 
 }

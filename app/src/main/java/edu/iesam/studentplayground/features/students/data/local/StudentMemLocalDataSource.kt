@@ -15,4 +15,8 @@ class StudentMemLocalDataSource{
         val list: List<Student> = dataSource.values.toList()
         return list
     }
+
+    fun delete(exp: String){
+        dataSource.remove(exp)
+    }
 }

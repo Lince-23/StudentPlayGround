@@ -7,4 +7,6 @@ interface StudentRepository {
 
     fun get(): List<Student>
 
+    fun delete(exp:String)
+
 }
