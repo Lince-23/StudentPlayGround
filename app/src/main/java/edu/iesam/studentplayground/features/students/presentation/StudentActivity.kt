@@ -14,6 +14,7 @@ import edu.iesam.studentplayground.features.students.data.remote.StudentApiRemot
 import edu.iesam.studentplayground.features.students.domain.DeleteStudentUseCase
 import edu.iesam.studentplayground.features.students.domain.GetStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
+import edu.iesam.studentplayground.features.students.domain.UpdateStudentNameUseCase
 
 class StudentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,12 +45,17 @@ class StudentActivity : AppCompatActivity() {
             ),
             DeleteStudentUseCase(
                 studentDataRepository
+            ),
+            UpdateStudentNameUseCase(
+                studentDataRepository
             )
         )
 
         viewModel.saveClicked("0001", "nombre1 apellido1 apellido2")
         viewModel.saveClicked("0002", "nombre1 apellido1 apellido2")
+        viewModel.getClicked()
         Log.d("@dev", "Stop")
+        viewModel.updateClicked("0002", "nombre12 apellido12 apellido22")
         viewModel.getClicked()
         viewModel.deleteClicked("0002")
         viewModel.getClicked()
