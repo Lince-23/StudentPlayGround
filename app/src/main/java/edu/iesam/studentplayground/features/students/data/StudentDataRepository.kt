@@ -17,14 +17,18 @@ class StudentDataRepository(
     }
 
     override fun get(): List<Student> {
-       return memLocalDataSource.get()
+        return memLocalDataSource.get()
     }
 
     override fun delete(exp: String) {
         memLocalDataSource.delete(exp)
     }
 
-    override fun updateName(exp: String, changeStudent: Student) {
+    override fun update(exp: String, changeStudent: Student) {
         memLocalDataSource.update(exp, changeStudent)
+    }
+
+    override fun getStudent(exp: String): Student? {
+        return memLocalDataSource.getStudent(exp)
     }
 }

@@ -7,8 +7,10 @@ interface StudentRepository {
 
     fun get(): List<Student>
 
-    fun delete(exp:String)
+    fun getStudent(exp: String): Student?
 
-    fun updateName(exp: String, changeStudent: Student)
+    fun delete(exp: String)
+
+    fun update(exp: String, changeStudent: Student)
 
 }

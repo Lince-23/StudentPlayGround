@@ -2,7 +2,7 @@ package edu.iesam.studentplayground.features.students.data.local
 
 import edu.iesam.studentplayground.features.students.domain.Student
 
-class StudentMemLocalDataSource{
+class StudentMemLocalDataSource {
 
     private val dataSource: MutableMap<String, Student> = mutableMapOf()
 
@@ -15,11 +15,15 @@ class StudentMemLocalDataSource{
         return list
     }
 
-    fun delete(exp: String){
+    fun delete(exp: String) {
         dataSource.remove(exp)
     }
 
-    fun update(exp: String, updatedStudent: Student){
-        dataSource.replace(exp, dataSource.get(exp)!!, updatedStudent )
+    fun update(exp: String, updatedStudent: Student) {
+        dataSource.replace(exp, dataSource.get(exp)!!, updatedStudent)
+    }
+
+    fun getStudent(exp: String): Student? {
+        return dataSource.get(exp)
     }
 }
