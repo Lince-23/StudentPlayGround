@@ -1,5 +1,6 @@
 package edu.iesam.studentplayground.features.students.data.local
 
+import android.util.Log
 import edu.iesam.studentplayground.features.students.domain.Student
 
 class StudentMemLocalDataSource{
@@ -8,5 +9,10 @@ class StudentMemLocalDataSource{
 
     fun save(student: Student) {
         dataSource.put(student.exp, student)
+    }
+
+    fun get(): List<Student> {
+        val list: List<Student> = dataSource.values.toList()
+        return list
     }
 }

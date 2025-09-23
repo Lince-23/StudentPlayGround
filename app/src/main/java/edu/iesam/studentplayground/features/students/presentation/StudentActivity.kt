@@ -11,6 +11,7 @@ import edu.iesam.studentplayground.features.students.data.StudentDataRepository
 import edu.iesam.studentplayground.features.students.data.local.StudentMemLocalDataSource
 import edu.iesam.studentplayground.features.students.data.local.StudentXmlLocalDataSource
 import edu.iesam.studentplayground.features.students.data.remote.StudentApiRemoteDataSource
+import edu.iesam.studentplayground.features.students.domain.GetStudentsUseCase
 import edu.iesam.studentplayground.features.students.domain.SaveStudentUseCase
 
 class StudentActivity : AppCompatActivity() {
@@ -27,18 +28,26 @@ class StudentActivity : AppCompatActivity() {
     }
 
     fun initStudents(){
+        val studentDataRepository= StudentDataRepository(
+            StudentXmlLocalDataSource(),
+            StudentMemLocalDataSource(),
+            StudentApiRemoteDataSource()
+        )
+
         val viewModel = StudentViewModel(
             SaveStudentUseCase(
-                StudentDataRepository(
-                    StudentXmlLocalDataSource(),
-                    StudentMemLocalDataSource(),
-                    StudentApiRemoteDataSource()
-                )
+                studentDataRepository
+            ),
+            GetStudentsUseCase(
+                studentDataRepository
             )
         )
 
         viewModel.saveClicked("0001", "nombre1 apellido1 apellido2")
+        viewModel.saveClicked("0002", "nombre1 apellido1 apellido2")
         Log.d("@dev", "Stop")
+        viewModel.getClicked()
+
     }
 
 }

@@ -16,4 +16,7 @@ class StudentDataRepository(
         memLocalDataSource.save(student)
     }
 
+    override fun get(): List<Student> {
+       return memLocalDataSource.get()
+    }
 }

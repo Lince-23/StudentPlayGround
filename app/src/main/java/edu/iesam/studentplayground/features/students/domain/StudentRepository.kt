@@ -5,4 +5,6 @@ interface StudentRepository {
     //Si no lo especificamos es :Unit (que seria como void en java)
     fun save(student: Student)
 
+    fun get(): List<Student>
+
 }
