@@ -1,6 +1,5 @@
 package edu.iesam.studentplayground.features.students.data.local
 
-import android.util.Log
 import edu.iesam.studentplayground.features.students.domain.Student
 
 class StudentMemLocalDataSource{
@@ -18,5 +17,9 @@ class StudentMemLocalDataSource{
 
     fun delete(exp: String){
         dataSource.remove(exp)
+    }
+
+    fun update(exp: String, updatedStudent: Student){
+        dataSource.replace(exp, dataSource.get(exp), updatedStudent )
     }
 }

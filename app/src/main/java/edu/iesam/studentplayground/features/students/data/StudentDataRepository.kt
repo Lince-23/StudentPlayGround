@@ -23,4 +23,8 @@ class StudentDataRepository(
     override fun delete(exp: String) {
         memLocalDataSource.delete(exp)
     }
+
+    override fun updateName(exp: String, changeStudent: Student) {
+        memLocalDataSource.update(exp, changeStudent)
+    }
 }

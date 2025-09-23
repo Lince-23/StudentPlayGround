@@ -9,4 +9,6 @@ interface StudentRepository {
 
     fun delete(exp:String)
 
+    fun updateName(exp: String, changeStudent: Student)
+
 }
