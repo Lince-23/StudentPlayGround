@@ -53,6 +53,11 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     testImplementation("io.mockk:mockk:${mockkVersion}")
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit.junit2)
+    testImplementation(libs.junit.junit2)
+    testImplementation(libs.junit.junit2)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
