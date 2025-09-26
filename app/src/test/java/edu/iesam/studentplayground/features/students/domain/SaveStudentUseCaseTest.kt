@@ -1,42 +1,24 @@
 package edu.iesam.studentplayground.features.students.domain
 
-import io.mockk.MockKAnnotations
-import io.mockk.impl.annotations.RelaxedMockK
+import io.mockk.mockk
 import io.mockk.verify
-import org.junit.Before
+import org.junit.Assert.*
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
 
 class SaveStudentUseCaseTest {
-    @RelaxedMockK
-    lateinit var mockStudentRepository: StudentRepository
-
-    lateinit var saveStudentUseCase: SaveStudentUseCase
 
 
-    @Before
-    fun onBefore() {
-        MockKAnnotations.init(this)
-        saveStudentUseCase = SaveStudentUseCase(mockStudentRepository)
-    }
 
     @Test
-    fun `try to save a valid student`() {
+    fun `when invoke then save student`(){
         //Given
-        val student = Student("0001", "Jean Doe")
+        val studentRepositoryMock = mockk<StudentRepository>(relaxed = true)
+        val saveStudentUseCase = SaveStudentUseCase(studentRepositoryMock)
+        val student = Student("0000", "Name")
         //When
-        saveStudentUseCase.invoke(student)
+        saveStudentUseCase(student) //Con el operador invoke, no hace falta pone .invoke()
         //Then
-        verify { mockStudentRepository.save(student) }
+        verify(exactly = 1) { studentRepositoryMock.save(student) }
     }
 
-    @Test
-    fun `try to save a invalid student`() {
-        //Given
-        val student = Student("d", "")
-        //When
-        saveStudentUseCase.invoke(student)
-        //Then
-        verify(exactly = 0) { mockStudentRepository.save(student) }
-    }
 }

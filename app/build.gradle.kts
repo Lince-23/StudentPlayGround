@@ -41,8 +41,6 @@ android {
     }
 }
 
-val mockkVersion = "1.14.5"
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -50,14 +48,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
     testImplementation(libs.junit)
-    testImplementation(libs.junit.jupiter)
-    testImplementation("io.mockk:mockk:${mockkVersion}")
-    testImplementation(libs.junit.junit)
-    testImplementation(libs.junit.junit)
-    testImplementation(libs.junit.junit2)
-    testImplementation(libs.junit.junit2)
-    testImplementation(libs.junit.junit2)
+    testImplementation(libs.mockk)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
