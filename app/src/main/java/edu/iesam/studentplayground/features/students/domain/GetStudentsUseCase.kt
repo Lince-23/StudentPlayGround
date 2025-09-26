@@ -1,9 +1,9 @@
 package edu.iesam.studentplayground.features.students.domain
 
-class GetStudentsUseCase(val studentRepository: StudentRepository) {
+class GetStudentsUseCase(private val studentRepository: StudentRepository) {
 
-    operator fun invoke(){
-        studentRepository.get()
+    operator fun invoke(): List<Student>{
+        return studentRepository.findAll()
     }
 
 }

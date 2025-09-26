@@ -10,9 +10,10 @@ class StudentMemLocalDataSource {
         dataSource.put(student.exp, student)
     }
 
-    fun get(): List<Student> {
-        val list: List<Student> = dataSource.values.toList()
-        return list
+    fun findAll(): List<Student> {
+        return dataSource.map { student ->
+            student.value
+        }
     }
 
     fun delete(exp: String) {
