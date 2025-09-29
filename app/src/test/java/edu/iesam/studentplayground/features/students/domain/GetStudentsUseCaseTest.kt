@@ -14,8 +14,8 @@ class GetStudentsUseCaseTest {
         val expectedList = listOf<Student>(Student("0000", "Name"))
         val studentDataRepositoryMock = mockk<StudentRepository>()
         val getStudentsUseCase= GetStudentsUseCase(studentDataRepositoryMock)
-        //When
         every { studentDataRepositoryMock.findAll() } returns expectedList
+        //When
         val resultList = getStudentsUseCase.invoke()
         //Then
         assertEquals(expectedList, resultList)
